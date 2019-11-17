@@ -1,0 +1,54 @@
+package rps;
+
+import java.util.EnumMap;
+import java.util.Map;
+
+/**
+ * 
+ * @author SAIMIR
+ *
+ */
+
+public class InputPlayer extends Player{
+	
+	HandGesture inputHG;
+
+	public static Map<HandGesture, Integer> counterIPHG = new EnumMap<HandGesture, Integer>(
+			HandGesture.class) {
+		private static final long serialVersionUID = 1L;
+
+		{
+			for (HandGesture item : HandGesture.values())
+				put(item, 0);
+		}
+	};
+	
+	public InputPlayer() {
+		
+	}
+
+	@Override
+	public void nextHandGesture() {
+		counterIPHG.put(inputHG, counterIPHG.get(inputHG) + 1);
+	}
+
+	@Override
+	public HandGesture getHandGesture() {
+		return inputHG;
+	}
+	
+	@Override
+	public void setHandGesture(String input) {
+		inputHG = HandGesture.valueOf(input);
+	}
+	
+	public void getMap() {
+		for (Map.Entry<HandGesture, Integer> entry : counterIPHG
+				.entrySet()) {
+			/**
+			 * System.out.println("Input Player chose " + entry.getKey() + " " + (entry.getValue()) + " times,");
+			 */
+			System.out.printf("Input Player chose %s %d times \n", entry.getKey(), entry.getValue());
+		}
+	}
+}
