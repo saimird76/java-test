@@ -1,19 +1,19 @@
 package rps;
 /**
- * 
+ *
  * @author SAIMIR
- * 
+ *
  */
 public enum OutCome {
-	A_WINS("Rock Player won"), B_WINS("Input Player won"), TIE("TIE");
+	ROUNDS(" played "), WINS(" wins against "), LOOSES(" looses to "), TIE(" TIE ");
 
 	private final String s;
 
+	private OutCome(final String s) {
+		this.s = s;
+	}
+
 	public String getS() {
 		return s;
-	}
-	
-	private OutCome(final String s){
-		this.s = s;
 	}
 }
